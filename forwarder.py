@@ -10,10 +10,9 @@ class TelegramForwarder:
         self.api_id = api_id
         self.api_hash = api_hash
         self.phone_number = phone_number
-        self.client = TelegramClient(f'session_{phone_number}', api_id, api_hash)
+        self.client = TelegramClient(f'sessions/session_{phone_number}', api_id, api_hash)
 
     async def connect_and_authorize(self):
-        """ Подключение и авторизация аккаунта. """
         await self.client.connect()
 
         if not await self.client.is_user_authorized():
@@ -26,7 +25,6 @@ class TelegramForwarder:
                 await self.client.sign_in(password=password)
 
     async def forward_all_messages_to_channel(self, source_chat_id, destination_channel_id):
-        """ Пересылка сообщений. """
         await self.connect_and_authorize()
 
         try:
