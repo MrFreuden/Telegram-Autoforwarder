@@ -103,6 +103,7 @@ async def main():
     print(f"User 2 source chat ID: {source_chat_id_2}")
 
     while True:
+        time.sleep(5)
 
 if __name__ == "__main__":
     asyncio.run(main())
