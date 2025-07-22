@@ -102,10 +102,7 @@ async def main():
     print(f"User 1 source chat ID: {source_chat_id_1}")
     print(f"User 2 source chat ID: {source_chat_id_2}")
 
-    await asyncio.gather(
-        forwarder_1.forward_all_messages_to_channel(source_chat_id_1, destination_channel_id_1),
-        forwarder_2.forward_all_messages_to_channel(source_chat_id_2, destination_channel_id_2)
-    )
+    while True:
 
 if __name__ == "__main__":
     asyncio.run(main())
